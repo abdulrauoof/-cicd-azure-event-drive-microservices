@@ -31,6 +31,16 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>ci-cd-demo</id>
+            <url>https://pkgs.dev.azure.com/KBRV37/DevOps-Practice/_packaging/ci-cd-demo/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
     <pluginRepositories>
