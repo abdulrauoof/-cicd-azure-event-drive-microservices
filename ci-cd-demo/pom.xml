@@ -222,6 +222,27 @@
                     </filesets>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>VstsPackage</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <includeBaseDirectory>false</includeBaseDirectory>
+                            <baseDirectory>/</baseDirectory>
+                            <descriptors>
+                                <descriptor>src/main/assembly/zip.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
