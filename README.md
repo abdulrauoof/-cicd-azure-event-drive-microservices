@@ -14,3 +14,4 @@ You can hit enter the next 2 times, and then type "y" to confirm.
 
 ## References
 https://azure.microsoft.com/en-us/resources/videos/azure-friday-java-in-azure-functions/
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-cli?tabs=bash%2Cbrowser&pivots=programming-language-csharp
