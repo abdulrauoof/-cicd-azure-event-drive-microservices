@@ -38,7 +38,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/target/VstsPackage.zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/ci-cd-demo/target/VstsPackage.zip'
     ArtifactName: 'azure-func-http-trigger'
     publishLocation: 'Container'
 
