@@ -9,6 +9,9 @@ trigger:
     - develop
     - master
 
+resources:
+  - repo: self
+
 pool:
   vmImage: 'ubuntu-latest'
 
