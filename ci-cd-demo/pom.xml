@@ -15,7 +15,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <azure.functions.maven.plugin.version>1.4.1</azure.functions.maven.plugin.version>
         <azure.functions.java.library.version>1.3.1</azure.functions.java.library.version>
-        <functionAppName>ci-cd-demo</functionAppName>
+        <functionAppName>ci-cd-demo-20200322224106330</functionAppName>
         <functionAppRegion>centralus</functionAppRegion>
         <functionResourceGroup>AzureFunctionsQuickstart-rg</functionResourceGroup>
         <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
@@ -121,6 +121,16 @@
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>
                 </plugin>
+
+<!--                <plugin>-->
+<!--                    <artifactId>maven-assembly-plugin</artifactId>-->
+<!--                    <version>3.2.0</version>-->
+<!--                    <configuration>-->
+<!--                    </configuration>-->
+<!--                    <executions>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
+
             </plugins>
         </pluginManagement>
 
@@ -141,6 +151,7 @@
                     <!-- function pricingTier, default to be consumption if not specified -->
                     <!-- refers https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-functions-maven-plugin#supported-pricing-tiers for all valid values -->
                     <!-- <pricingTier></pricingTier> -->
+
                     <runtime>
                         <!-- runtime os, could be windows, linux or docker-->
                         <os>windows</os>
@@ -225,8 +236,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.2.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -236,8 +247,8 @@
                         <configuration>
                             <finalName>VstsPackage</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
-                            <includeBaseDirectory>false</includeBaseDirectory>
-                            <baseDirectory>/</baseDirectory>
+<!--                            <includeBaseDirectory>false</includeBaseDirectory>-->
+<!--                            <baseDirectory>/</baseDirectory>-->
                             <descriptors>
                                 <descriptor>src/main/assembly/zip.xml</descriptor>
                             </descriptors>
