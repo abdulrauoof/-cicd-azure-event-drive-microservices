@@ -37,9 +37,9 @@ steps:
     sonarQubeRunAnalysis: false
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: ci-cd-demo'
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/ci-cd-demo/target/VstsPackage.zip'
-    ArtifactName: 'azure-func-http-trigger'
-    publishLocation: 'Container'
+    ArtifactName: 'ci-cd-demo'
 
 
