@@ -2,7 +2,15 @@
 
 ## About
 The goal of this project will be to create an serverless function in the cloud using Azure Functions, and to create a CI/CD process for the application. We will
-be using a HTTP trigger function, which is invoked via HTTP request.
+be using a HTTP trigger function, which is invoked via HTTP request. Furthermore, a CI/CD process will be created, such that the source code of 
+the Azure function can be uploaded to Azure DevOps and a CI (Continous Integration) pipeline can be created via *yaml* code, which automates the build process (especially useful with multiple developers)
+and then can feed artifacts into the CD pipeline for creating releases and deploying to production for use by customers. It basically streamlines the entire, once arduous process.
+
+Continuous Integreation (CI) means new code changes to an app are regularly built, tested, and merged to a shared repository. 
+It’s a solution to the problem of having too many branches of an app in development at once that might conflict with each other.
+
+Continuous deployment (CD) can refer to automatically releasing a developer’s changes from the repository to production, 
+where it is usable by customers. It addresses the problem of overloading operations teams with manual processes that slow down app delivery. It builds on the benefits of continuous delivery by automating the next stage in the pipeline.
 
 ## Environment Setup
 Before jumping in you should download the Azure CLI and Azure Functions Core Tools. You will also need to install Node.js, which includes npm, prior to installing Core Tools.
@@ -68,7 +76,29 @@ Very neat.
 ## Deploy to the Cloud (Azure)
 Now that we generated, compiled/built, and tested our Azure Function locally, we can now deploy it to the cloud (Azure) directly.
 
+You will need an Azure Subscription. You can get one for free:
+https://azure.microsoft.com/en-us/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 
+1. After creating the subscription, you will need to log into Azure. Open up command prompt/terminal:
+```az login```
+
+2. You will need to create a Resource group
+```az group create --name MyTestResourceGroup --location centralus
+
+3. You will need to create a **globally** unique Storage Account name (3-24 lowercase letters only). Replace ```<STORAGE_NAME>``` with your unique name:
+```az storage account create --name <STORAGE_NAME> --location centralus --resource-group MyTestResourceGroup --sku Standard_LRS```
+
+4. Create the function app on Azure. Replace ```<APP_NAME>``` with a globally unique name you would like, and ```<STORAGE_NAME>``` with the storage name you used in the previous step:
+```az functionapp create --resource-group MyTestResourceGroup --consumption-plan-location centralus --runtime dotnet --name <APP_NAME> --storage-account <STORAGE_NAME>```
+
+Now that your resource group, storage account, and function app are created on Azure cloud, the only thing left to do is publish your local code to the function app you just created:
+```func azure functionapp publish <APP_NAME>```
+
+
+## Azure Portal
+
+
+## Azure DevOps
 
 
 ## References
