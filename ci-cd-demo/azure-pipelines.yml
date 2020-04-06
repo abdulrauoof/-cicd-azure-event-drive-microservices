@@ -42,5 +42,4 @@ steps:
     ArtifactName: 'azure-func-http-trigger'
     publishLocation: 'Container'
 
-  task:
 
